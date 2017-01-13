@@ -1,0 +1,97 @@
+html, body{
+	background-color: #C69C72;
+}
+
+h1{
+	text-align: center;
+	color: #282626;
+}
+
+.form-usuario{
+	float: left;
+	width: 40%;
+	margin-left: 50px;
+}
+
+fieldset{
+	padding: 30px;
+	border: 2px solid #8E6E53; 
+}
+
+legend{
+	color: #282626;
+}
+
+label {
+	color: #282626; 
+}
+
+.label{
+	display: inline-block;
+	width: 50px;
+	text-align: right;
+}
+
+.alinha{
+	margin-bottom: 15px;
+	display: inline-block;
+}
+
+.numero{
+	width: 50px;
+}
+
+.texto{
+	width: 200px;
+}
+
+.grupo-botoes{
+	width: 100%;
+	text-align: center;
+	margin-top: 30px;
+}
+
+button{
+	width: 20%;
+	padding: 5px;
+	background-color: #7A7265;
+	border: none;
+	margin: 5px;
+}
+
+.lista-usuario{
+	float: right;
+	width: 40%;
+	margin-right: 70px;
+	/*Retirar*/
+	/*border: 2px solid black;*/
+}
+
+h2{
+	color: #282626;
+	font-weight: normal;
+	text-align: center;
+}
+
+ul{
+	list-style: none;
+}
+
+li{
+	width: 200px;
+	height: 30px;
+}
+
+a{
+	display: inline-block;
+	width: 100px;
+	text-align: right;
+	text-decoration: none;
+	color: #282626;
+}
+
+p{
+	display: inline-block;
+	color: #282626;
+
+}

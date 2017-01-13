@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Usuário</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+	<h1>Área Administrativa de Usuários</h1>
+	
+	<section class="form-usuario">
+		<form id="addUsuario">
+			<fieldset>
+				<legend>Formulário de cadastro de usuário</legend>
+
+				<label class="label" for="id">Id: </label>
+				<input id="id" class="numero alinha" type="number" disabled="disabled"> <br>
+
+				<label class="label" for="nome">Nome: </label>
+				<input id="nome" class="texto alinha" type="text" placeholder="Insira seu nome"> <br>
+
+				<label class="label" for="idade">Idade: </label>
+				<input id="idade" class="numero alinha" type="number" min="0" max="150" name="idade"> <br>
+
+				<label class="label" for="genero">Genero: </label>
+				<label><input type="radio" name="genero" value="masculino"> Masculino</label>
+				<label><input type="radio" name="genero" value="feminino"> Feminino</label>
+				<label><input type="radio" name="genero" value="helicoptero-apache"> Helicoptero Apache</label>
+
+				<div class="grupo-botoes">
+					<button id="add">Cadastrar</button>
+					<button id="update">Alterar</button>
+					<button id="delete">Deletar</button>
+					<button id="clean">Limpar</button>
+				</div>
+			</fieldset>
+		</form>	
+	</section>
+
+	<section class="lista-usuario">
+		<h2>Usuários Cadastrados</h2>
+		<ul>
+			<li><a href="#">Rodrigo</a> | <p>22 anos</p></li>
+			<li><a href="#">Felipe</a> | <p>25 anos</p></li>
+		</ul>
+	</section>
+
+</body>
+</html>
