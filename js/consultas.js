@@ -1,5 +1,6 @@
+var urlBase = "http://172.16.0.2:50447/restExample/webresources";
+
 $(document).ready(function(){
-	var urlBase = "http://172.16.0.2:50447/restExample/webresources";
 	
 	listarUsuarios();
 
@@ -27,14 +28,14 @@ $(document).ready(function(){
 	
 
 	function listarUsuarios(){
-		$("#lista").empty();
+		$("#lista li").remove();
 		$.ajax({
-			url: urlBase + "/usuario"
-		}).done(function(data){
-			$.each(data, function(){
-				adicionarLista(this);
-			});
-			console.log(data);
+			url: urlBase + "/usuario",
+			success: function(data){
+				$.each(data, function(){
+					adicionarLista(this);
+				});
+			}
 		});
 	}
 
@@ -48,13 +49,13 @@ $(document).ready(function(){
 	function pegarUsuario(usuario){
 		var id = $(usuario).data("id");
 		$.ajax({
-			url: urlBase + "/usuario/"+id
-		}).done(function(data){
-			$("#id").val(data.id);
-			$("#nome").val(data.nome);
-			$("#idade").val(data.idade);
-			$("input[value='"+data.sexo+"']").prop("checked", true);
-			console.log(data);
+			url: urlBase + "/usuario/"+id,
+			success: function(data){
+				$("#id").val(data.id);
+				$("#nome").val(data.nome);
+				$("#idade").val(data.idade);
+				$("input[value='"+data.sexo+"']").prop("checked", true);
+			}
 		});
 
 	}
@@ -63,17 +64,20 @@ $(document).ready(function(){
 		var nome = $("#nome").val();
 		var idade = $("#idade").val();
 		var genero = $("input[name = genero]:checked").val();
-		var usuario = jQuery.parseJSON('{"nome": "'+nome+'", "idade": "'+idade+'", "sexo": "'+genero+'"}');
+		var usuario = JSON.stringify({'nome': nome, 'idade': idade, 'sexo': genero});
 		console.log(usuario);
 		$.ajax({
 			type: "POST",
+			contentType: 'application/json',
 			url: urlBase+"/usuario",
 			data: usuario,
-		}).done(function(data){
-			console.log(data);
+			dataType: 'json',
+			success: function(data){
+				listarUsuarios();
+			}
 		});
 
-		listarUsuarios();
+		
 	}
 
 	function limparCampos(){
@@ -87,10 +91,10 @@ $(document).ready(function(){
 	function deletarUsuario(id){
 		$.ajax({
 			type: "DELETE",
-			url: urlBase + "/usuario/"+id
-		}).done(function(data){
-			listarUsuarios();
-			console.log(data);
+			url: urlBase + "/usuario/"+id,
+			success: function(data){
+				listarUsuarios();
+			}
 		});
 	}
 
@@ -99,16 +103,17 @@ $(document).ready(function(){
 		var nome = $("#nome").val();
 		var idade = $("#idade").val();
 		var genero = $("input[name = genero]:checked").val();
-		var usuario = jQuery.parseJSON('{"id": '+id+', "nome": "'+nome+'", "idade": '+idade+', "sexo": "'+genero+'"}');
-		console.log(usuario);
+		var usuario = JSON.stringify({'id': id, 'nome': nome, 'idade': idade, 'sexo': genero});
 		$.ajax({
 			type: "PUT",
+			contentType: 'application/json',
 			url: urlBase+"/usuario",
 			data: usuario,
-		}).done(function(data){
-			console.log(data);
-		});
-
-		listarUsuarios();
+			dataType: 'json',
+			success: function(data){
+				listarUsuarios();
+			}
+		});	
 	}
 });
+
