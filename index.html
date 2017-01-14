@@ -3,6 +3,7 @@
 <head>
 	<title>Usuário</title>
 	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<script src="js/jquery.min.js"></script>
 </head>
 <body>
 	<h1>Área Administrativa de Usuários</h1>
@@ -13,18 +14,18 @@
 				<legend>Formulário de cadastro de usuário</legend>
 
 				<label class="label" for="id">Id: </label>
-				<input id="id" class="numero alinha" type="number" disabled="disabled"> <br>
+				<input id="id" class="numero alinha" type="number" name="id" disabled="disabled"> <br>
 
 				<label class="label" for="nome">Nome: </label>
-				<input id="nome" class="texto alinha" type="text" placeholder="Insira seu nome"> <br>
+				<input id="nome" class="texto alinha" type="text" name="nome" placeholder="Insira seu nome"> <br>
 
 				<label class="label" for="idade">Idade: </label>
 				<input id="idade" class="numero alinha" type="number" min="0" max="150" name="idade"> <br>
 
 				<label class="label" for="genero">Genero: </label>
-				<label><input type="radio" name="genero" value="masculino"> Masculino</label>
-				<label><input type="radio" name="genero" value="feminino"> Feminino</label>
-				<label><input type="radio" name="genero" value="helicoptero-apache"> Helicoptero Apache</label>
+				<label><input type="radio" name="genero" value="MASCULINO"> Masculino</label>
+				<label><input type="radio" name="genero" value="FEMININO"> Feminino</label>
+				<label><input type="radio" name="genero" value="HELICOPTERO-APACHE"> Helicoptero Apache</label>
 
 				<div class="grupo-botoes">
 					<button id="add">Cadastrar</button>
@@ -38,11 +39,9 @@
 
 	<section class="lista-usuario">
 		<h2>Usuários Cadastrados</h2>
-		<ul>
-			<li><a href="#">Rodrigo</a> | <p>22 anos</p></li>
-			<li><a href="#">Felipe</a> | <p>25 anos</p></li>
-		</ul>
+		<ul id="lista"></ul>
 	</section>
 
+	<script src="js/consultas.js"></script>
 </body>
 </html>
